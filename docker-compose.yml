@@ -1,0 +1,28 @@
+version: "3.4"
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD: "test_root_password"
+      - MYSQL_DATABASE: "db"
+      - MYSQL_USER: "app"
+      - MYSQL_PASSWORD: "app_password"
+    networks:
+      - backend
+    volumes:
+      - data:/var/lib/mysql
+  app:
+    build: .
+    image: app
+    networks:
+      - backend
+    ports:
+      - "80:8000"
+    command: bin/serve
+
+networks:
+  backend:
+    driver: bridge
+

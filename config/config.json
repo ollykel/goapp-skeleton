@@ -1,0 +1,15 @@
+{
+	"Index": "public/index.html",
+	"StaticDir": "/public/",
+	"Server": {
+		"Port": ":8000",
+		"TLSEnabled": false
+	},
+	"Database": {
+		"Protocol": "tcp",
+		"Address": "db:3306",
+		"DatabaseName": "db",
+		"Username": "app",
+		"Password": "app_password"
+	}
+}
