@@ -16,11 +16,15 @@ services:
   app:
     build: .
     image: app
+    depends_on: db
     networks:
       - backend
     ports:
       - "80:8000"
     command: bin/serve
+
+volumes:
+  data: {}
 
 networks:
   backend:
