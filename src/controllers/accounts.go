@@ -1,11 +1,13 @@
 package controllers
 
 import (
-	"log"
+	//--"log"
+	"net/http"
 	// framework imports
 	"github.com/ollykel/webapp"
 	// local imports
 	"response"
+	"models/users"
 )
 
 type account struct {

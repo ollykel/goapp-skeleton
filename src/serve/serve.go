@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"net.http"
+	"net/http"
 	// framework dependencies
 	"github.com/ollykel/webapp"
 	database "github.com/ollykel/webapp/databases/mysql"
@@ -43,7 +43,7 @@ func main() {
 	//-- feel free to inject different dependencies below
 	//-- check out the interfaces Server, Database, and Handler in webapp
 	app, err := webapp.Init(config, &webapp.DefaultServer{},
-		&database.Database{}, http.NewServeMux())
+		http.NewServeMux(), &database.Database{})
 	if err != nil { log.Fatal(err) }
 	err = app.RegisterModels(models.Models())
 	if err != nil { log.Fatal(err) }

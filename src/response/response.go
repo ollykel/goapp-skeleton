@@ -12,6 +12,8 @@ package response
 
 import (
 	"net/http"
+	"encoding/json"
+	"encoding/xml"
 	// framework dependencies
 	"github.com/ollykel/webapp"
 	"github.com/ollykel/webapp/resp"
@@ -71,13 +73,12 @@ func ParseBody (dest interface{}, r *http.Request, dataType string) error {
 	return dec.Decode(dest)
 }//-- end func parseBody
 
-func Error (w http.ResponseWriter, data *response.Data,
-		code int, msg string) {
+func Error (w http.ResponseWriter, data *Data, code int, msg string) {
 	data.Code, data.Msg = code, msg
 	data.Write(w)
 }//-- end func errorResponse
 
-func Success(w http.ResponseWriter, data *response.Data) {
+func Success(w http.ResponseWriter, data *Data) {
 	data.Code = http.StatusOK
 	data.Write(w)
 }//-- end func successResponse
@@ -85,7 +86,7 @@ func Success(w http.ResponseWriter, data *response.Data) {
 /**
  * Depends on the "Type" global middleware being installed.
  */
-func Fmt (output *response.Data, data webapp.ReqData) {
+func Fmt (output *Data, data webapp.ReqData) {
 	output.Type = data["Content-Type"]
 }//-- end func fmtResponse
 

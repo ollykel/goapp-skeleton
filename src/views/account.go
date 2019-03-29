@@ -29,7 +29,6 @@ func Account (w http.ResponseWriter, r *http.Request,
 		output.Write(w)
 		return
 	}
-	usr.FetchPosts()
 	protocol.Success, protocol.Data = true, usr
 	output.Write(w)
 }//-- end func Account

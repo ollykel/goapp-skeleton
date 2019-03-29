@@ -13,7 +13,7 @@ func User(w http.ResponseWriter, r *http.Request, data webapp.ReqData) {
 	username := data["tag"]
 	if username == "" {
 		log.Print("Error! No username provided")
-		errorResp(w, &output, http.StatusBadRequest, "no username")
+		response.Error(w, &output, http.StatusBadRequest, "no username")
 		return
 	}
 	usr, err := users.GetUserByName(username)

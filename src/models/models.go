@@ -6,7 +6,7 @@ import (
 	"models/sessions"
 )
 
-func Definitions () []*model.Definition {
+func Models () []*model.Definition {
 	return []*model.Definition{users.Define(), sessions.Define()}
 }//-- end func Definitions
 
