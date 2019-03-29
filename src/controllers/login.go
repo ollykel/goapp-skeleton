@@ -18,7 +18,7 @@ type authData struct {
 func Login(w http.ResponseWriter, r *http.Request, data webapp.ReqData) {
 	output := resp.Data{Type: data["Content-Type"]}
 	creds := sessions.Credentials{}
-	parseBody(&creds, r, data["Content-Type"])
+	response.ParseBody(&creds, r, data["Content-Type"])
 	var err error
 	creds.Hash, err = sessions.Login(creds.Username, creds.Password)
 	if err != nil || creds.Hash == "" {
@@ -35,3 +35,18 @@ func Login(w http.ResponseWriter, r *http.Request, data webapp.ReqData) {
 	log.Printf("Login success for %s", creds.Username)
 	output.Write(w)
 }//-- end func Login
+
+func Logout (w http.ResponseWriter, r *http.Request, data webapp.ReqData) {
+	output := response.Data{}
+	response.Fmt(&output, data)
+	username := data["Username"]
+	err := sessions.Logout(username)
+	if err != nil {
+		log.Print(err.Error());
+		response.Error(w, &output, http.StatusInternalServerError,
+			err.Error())
+		return
+	}
+	response.Success(w, &output)
+}//-- end func Logout
+
