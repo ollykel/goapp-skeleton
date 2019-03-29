@@ -15,20 +15,20 @@ type account struct {
 func CreateAccount (w http.ResponseWriter, r *http.Request,
 		data webapp.ReqData) {
 	output := response.Data{}
-	fmtResponse(&output, data)
+	response.Fmt(&output, data)
 	acct := account{}
-	parseBody(&acct, r, data["Content-Type"])
+	response.ParseBody(&acct, r, data["Content-Type"])
 	if acct.Username == "" || acct.Password == "" {
-		errorResponse(w, &output, http.StatusBadRequest,
+		response.Error(w, &output, http.StatusBadRequest,
 			"need username and password")
 		return
 	}
 	username, password := acct.Username, acct.Password
 	err := users.Create(username, password)
 	if err != nil {
-		errorResponse(w, &output, http.StatusBadRequest, err.Error())
+		response.Error(w, &output, http.StatusBadRequest, err.Error())
 		return
 	}
-	successResponse(w, &output)
+	response.Success(w, &output)
 }//-- end func CreateAccount
 

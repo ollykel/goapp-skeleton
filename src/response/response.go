@@ -33,7 +33,25 @@ func (d *Data) Write (w http.ResponseWriter) {
 	(*resp.Data)(d).Write(w)
 }//-- end Data.Write
 
-func parseBody (dest interface{}, r *http.Request, dataType string) error {
+func HasAll(data webapp.ReqData, keys ...string) bool {
+	var exists bool
+	for _, k := range keys {
+		_, exists = data[k]
+		if !exists { return false }
+	}
+	return true
+}//-- end func hasAll
+
+type Status struct {
+	Success bool
+	Error string
+}//-- end StatusData struct
+
+type decoder interface {
+	Decode (interface{}) error
+}
+
+func ParseBody (dest interface{}, r *http.Request, dataType string) error {
 	var dec decoder
 	switch (dataType) {
 		case "xml", "XML":
@@ -44,18 +62,18 @@ func parseBody (dest interface{}, r *http.Request, dataType string) error {
 	return dec.Decode(dest)
 }//-- end func parseBody
 
-func errorResponse (w http.ResponseWriter, data *response.Data,
+func Error (w http.ResponseWriter, data *response.Data,
 		code int, msg string) {
 	data.Code, data.Data = code, &Status{Success: false, Error: msg}
 	data.Write(w)
 }//-- end func errorResponse
 
-func successResponse(w http.ResponseWriter, data *response.Data) {
+func Success(w http.ResponseWriter, data *response.Data) {
 	data.Data = &Status{Success: true}
 	data.Write(w)
 }//-- end func successResponse
 
-func fmtResponse (output *response.Data, data webapp.ReqData) {
+func Fmt (output *response.Data, data webapp.ReqData) {
 	output.Type = data["Content-Type"]
 }//-- end func fmtResponse
 
