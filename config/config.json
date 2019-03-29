@@ -1,6 +1,7 @@
 {
 	"Index": "public/index.html",
 	"StaticDir": "/public/",
+	"WaitSecs": 3,
 	"Server": {
 		"Port": ":8000",
 		"TLSEnabled": false
