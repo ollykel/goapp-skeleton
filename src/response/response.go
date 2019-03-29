@@ -4,7 +4,10 @@ package response
  * @author Oliver Kelton, oakelton@gmail.com
  * @date Mar 21, 2019
  * @dependencies webapp/resp
- * Standardized response format for data endpoints.
+ * Standardized response formats for data-based (json, xml) endpoints.
+ * Extends functions provided by the framework in the "resp" package.
+ * Rewrite this package at will to match the design of your
+ * RESTful web service.
  */
 
 import (
@@ -14,15 +17,26 @@ import (
 	"github.com/ollykel/webapp/resp"
 )
 
+/**
+ * Standard format for all json and xml responses
+ */
 type Protocol struct {
-	Authorized bool
-	Success bool
-	Error string
-	Data interface{}
+	Authorized bool//-- true if user authorized, false otherwise
+	Success bool//-- true if request valid and responded to successfully
+	Error string//-- if not successful, an explanation of the problem
+	Data interface{}//-- if successful, the body of the data
 }//-- end Protocol struct
 
+/**
+ * Extends the abilities of the resp package's Data struct.
+ * The Write method parses the Data field to the type (json or xml)
+ * specified by the Type field
+ */
 type Data resp.Data
 
+/**
+ * Utility function for serving data wrapped in a Protocol struct.
+ */
 func (d *Data) Write (w http.ResponseWriter) {
 	proto := Protocol{
 		Authorized: true,
@@ -42,11 +56,6 @@ func HasAll(data webapp.ReqData, keys ...string) bool {
 	return true
 }//-- end func hasAll
 
-type Status struct {
-	Success bool
-	Error string
-}//-- end StatusData struct
-
 type decoder interface {
 	Decode (interface{}) error
 }
@@ -64,15 +73,18 @@ func ParseBody (dest interface{}, r *http.Request, dataType string) error {
 
 func Error (w http.ResponseWriter, data *response.Data,
 		code int, msg string) {
-	data.Code, data.Data = code, &Status{Success: false, Error: msg}
+	data.Code, data.Msg = code, msg
 	data.Write(w)
 }//-- end func errorResponse
 
 func Success(w http.ResponseWriter, data *response.Data) {
-	data.Data = &Status{Success: true}
+	data.Code = http.StatusOK
 	data.Write(w)
 }//-- end func successResponse
 
+/**
+ * Depends on the "Type" global middleware being installed.
+ */
 func Fmt (output *response.Data, data webapp.ReqData) {
 	output.Type = data["Content-Type"]
 }//-- end func fmtResponse

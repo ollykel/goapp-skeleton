@@ -5,5 +5,6 @@ import (
 )
 
 func Middleware() []webapp.Middleware {
-	return []webapp.Middleware{GetBodyData, CheckLogin}
+	return []webapp.Middleware{Tag, Type, CheckLogin}
 }//-- end func Middleware
+
