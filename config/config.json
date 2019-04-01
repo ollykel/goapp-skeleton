@@ -4,6 +4,7 @@
 	"WaitSecs": 3,
 	"Server": {
 		"Port": ":8000",
+		"CacheTimeoutSecs": 60,
 		"TLSEnabled": false
 	},
 	"Database": {
