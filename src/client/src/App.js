@@ -6,11 +6,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src="/public/logo.svg" className="App-logo" alt="logo" />
-          <p>
-            Welcome to your first Goapp!
-          </p>
-          <a
+          <img src="/public/gopher.png" className="App-logo" alt="logo" />
+          <p>Welcome to your first Goapp!</p>
+		  <a
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
