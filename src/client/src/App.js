@@ -8,7 +8,7 @@ class App extends Component {
         <header className="App-header">
           <img src="/public/logo.svg" className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Welcome to your first Goapp!
           </p>
           <a
             className="App-link"
