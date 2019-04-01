@@ -5,7 +5,7 @@ const BUILD_DIR = path.resolve(__dirname, './public');
 const APP_DIR = path.resolve(__dirname, './src');
 
 const config = {
-	mode: 'development',
+	mode: 'production',
 	entry: {
 		main: APP_DIR + '/index.js'
 	},
