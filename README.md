@@ -1,3 +1,3 @@
-# Portfolio for you as a developer
-- Will be deployed as the main page of your personal website, with
-	links to your personal projects
+# Goapp Skeleton
+Skeleton for creating a new Goapp project.
+[Learn about Goapp](https://github.com/ollykel/webapp "Goapp on GitHub")
