@@ -1,5 +1,31 @@
 # /src
 By convention, src should contain the following packages:
+## models
+Packages that interface with the app's chosen database.
+Models should consist of several subpackages, each one responsible for a
+different model/database table.
+Each model subpackage should implement a function "Define" that returns a
+goapp/model.Definition struct:
+```go
+func Define () *model.Definition {
+	return &model.Definition{
+		Tablename: "model",
+		Fields: []model.Field{
+			// ...model.Field structs
+		},
+		Init: Init,
+	}
+}
+```
+The main models package should implement a Models func as follows:
+```go
+func Models () []*model.Definition {
+	return []*model.Definition{ foo.Define(), bar.Define() }
+}
+```
+For more information about the implementation of models packages, see
+/src/models/README.md.
+
 ## controllers
 Functions that handle POST, PUT, PATCH, and DELETE requests.
 Controllers should be sorted into files based on the path they handle
