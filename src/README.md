@@ -7,7 +7,7 @@ Controllers should be sorted into files based on the path they handle
 "controllers" package.
 All controllers must satisfy the goapp.Controller type definition:
 ```go
-func (w http.ResponseWriter, r \*http.Request, data goapp.ReqData)
+func (w http.ResponseWriter, r *http.Request, data goapp.ReqData)
 ```
 ## views
 Functions that handle GET requests.
@@ -19,7 +19,7 @@ Global middleware functions that are called before the execution of each
 endpoint (views and controllers).
 Middleware functions must satisfy the goapp.Middleware type definition:
 ```go
-func (w http.ResponseWriter, r \*http.Request, data goapp.ReqData) bool
+func (w http.ResponseWriter, r *http.Request, data goapp.ReqData) bool
 ```
 Middleware functions can pass state to endpoints via data, which is a map of
 type map[string]string. They can also abort the execution of endpoint by
