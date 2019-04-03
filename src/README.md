@@ -1,5 +1,24 @@
 # /src
 By convention, src should contain the following packages:
+## serve
+Contains the main executable for the app. Should consist of a single
+file, serve.go, which contains two functions: Methods and main.
+Methods should be implemented as follows:
+```go
+func Methods () map[string]*goapp.Method {
+	return map[string]*goapp.Method{
+		"/comments": &goapp.Method{
+			GET: views.Comments,
+			POST: controllers.CreateComment,
+			PUT: controllers.UpdateComment,
+			DELETE: controllers.DeleteComment},
+		// ...other *goapp.Method declarations
+	}
+}
+```
+As long as you follow the default file structure for /src, you shouldn't
+need to edit your import paths or func main() in serve.go.
+ 
 ## models
 Packages that interface with the app's chosen database.
 Models should consist of several subpackages, each one responsible for a
@@ -63,4 +82,9 @@ The order of the middleware functions matters: middleware are executed
 sequentially; if one middleware function depends on state provided by the
 data parameter, it must come after the middleware that provides that
 parameter.
+
+## response
+Response should contain wrapper functions for goapp/resp, defining
+protocols for serving data and handling errors for use in views and
+controllers.
 
