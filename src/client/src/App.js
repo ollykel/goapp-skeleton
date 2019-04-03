@@ -10,11 +10,11 @@ class App extends Component {
           <p>Welcome to your first Goapp!</p>
 		  <a
             className="App-link"
-            href="https://reactjs.org"
+            href="https://github.com/ollykel/webapp"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn about Goapp
           </a>
         </header>
       </div>
