@@ -5,7 +5,7 @@ WORKDIR /app
 ADD . /app
 # get dependencies
 RUN apk add git
-RUN go get github.com/ollykel/webapp
+RUN go get gopkg.in/ollykel/webapp.v0.1
 RUN go get github.com/go-sql-driver/mysql
 RUN go get gopkg.in/yaml.v2
 # compile app
