@@ -5,7 +5,7 @@ import (
 	"log"
 	"crypto/rand"
 	"database/sql"
-	"github.com/ollykel/webapp/model"
+	"gopkg.in/ollykel/webapp.v0.1/model"
 )
 
 type User struct {

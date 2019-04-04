@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"models/sessions"
 	"models/users"
-	webapp "github.com/ollykel/webapp"
-	"github.com/ollykel/webapp/resp"
+	webapp "gopkg.in/ollykel/webapp.v0.1"
+	"gopkg.in/ollykel/webapp.v0.1/resp"
 	"response"
 )
 

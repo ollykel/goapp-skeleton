@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/ollykel/webapp/model"
+	"gopkg.in/ollykel/webapp.v0.1/model"
 	"models/users"
 	"models/sessions"
 )

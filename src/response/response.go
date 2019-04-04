@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	// framework dependencies
-	"github.com/ollykel/webapp"
-	"github.com/ollykel/webapp/resp"
+	"gopkg.in/ollykel/webapp.v0.1"
+	"gopkg.in/ollykel/webapp.v0.1/resp"
 )
 
 /**

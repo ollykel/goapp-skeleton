@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	webapp "github.com/ollykel/webapp"
+	webapp "gopkg.in/ollykel/webapp.v0.1"
 )
 
 func Middleware() []webapp.Middleware {

@@ -4,7 +4,7 @@ import (
 	//--"log"
 	"net/http"
 	// framework imports
-	"github.com/ollykel/webapp"
+	webapp "gopkg.in/ollykel/webapp.v0.1"
 	// local imports
 	"response"
 	"models/users"

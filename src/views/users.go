@@ -3,7 +3,7 @@ package views
 import (
 	"log"
 	"net/http"
-	webapp "github.com/ollykel/webapp"
+	webapp "gopkg.in/ollykel/webapp.v0.1"
 	"response"
 	"models/users"
 )
