@@ -3,7 +3,8 @@ By convention, src should contain the following packages:
 ## serve
 Contains the main executable for the app. Should consist of a single
 file, serve.go, which contains two functions: Methods and main.
-Methods should be implemented as follows:
+Methods returns a map of paths to Method structs, defining which endpoints
+should be used for each path. Methods should be implemented as follows:
 ```go
 func Methods () map[string]*goapp.Method {
 	return map[string]*goapp.Method{
@@ -16,8 +17,11 @@ func Methods () map[string]*goapp.Method {
 	}
 }
 ```
+The main function sets up the app, registering the models and the Methods
+provided by func Methods().
+
 As long as you follow the default file structure for /src, you shouldn't
-need to edit your import paths or func main() in serve.go.
+need to edit the default import paths or func main() in serve.go.
  
 ## models
 Packages that interface with the app's chosen database.
