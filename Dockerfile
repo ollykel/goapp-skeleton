@@ -7,6 +7,7 @@ ADD . /app
 RUN apk add git
 RUN go get github.com/ollykel/webapp
 RUN go get github.com/go-sql-driver/mysql
+RUN go get gopkg.in/yaml.v2
 # compile app
 RUN go install serve
 # IMPORTANT: src/client/public/bundle.js must be compiled before creating
