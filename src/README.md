@@ -87,4 +87,17 @@ parameter.
 Response should contain wrapper functions for goapp/resp, defining
 protocols for serving data and handling errors for use in views and
 controllers.
+---
+If you choose to implement your app as a SPA (Goapp is optimized to serve a
+SPA and a RESTful API from the same server), you should put your client-side
+source code in a subdirectory called client. The example client directory
+provided here implements a SPA created using React and compiled to a bundle
+using Webpack. The tools you use to build your SPA are up to you; all that
+matters is that all the files necessary to render the SPA client-side are
+linked to in your index.html and accessible to Goapp's static server in
+StaticDir (defined in /config/config.json).
+
+The files to be included in your static directory should be moved to the
+app's main directory during creation of the Docker image, as the final image
+should not contain the /src directory.
 
