@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	configFileName = "config/config.json"
+	configFileName = "config/config.yml"
 )
 
 func Methods() map[string]*webapp.Methods {
