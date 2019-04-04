@@ -94,8 +94,8 @@ SPA and a RESTful API from the same server), you should put your client-side
 source code in a subdirectory called client. The example client directory
 provided here implements a SPA created using React and compiled to a bundle
 using Webpack. The tools you use to build your SPA are up to you; all that
-matters is that all the files necessary to render the SPA client-side are
-linked to in your index.html and accessible to Goapp's static server in
+matters is that the files necessary to render the SPA client-side are
+linked to in index.html and accessible to Goapp's static server from
 StaticDir (defined in /config/config.json).
 
 The files to be included in your static directory should be moved to the
