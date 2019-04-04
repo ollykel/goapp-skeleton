@@ -87,7 +87,8 @@ parameter.
 Response should contain wrapper functions for goapp/resp, defining
 protocols for serving data and handling errors for use in views and
 controllers.
----
+
+-----
 If you choose to implement your app as a SPA (Goapp is optimized to serve a
 SPA and a RESTful API from the same server), you should put your client-side
 source code in a subdirectory called client. The example client directory
