@@ -1,8 +1,8 @@
 index: "public/index.html"
-staticdir: "/public/"
 waitsecs: 3
 server:
   port: ":8000"
+  staticdir: "public"
   cachetimeoutsecs: 30
   tlsenabled: false
 database: 
