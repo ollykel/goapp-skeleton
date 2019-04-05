@@ -1,5 +1,5 @@
 index: "public/index.html"
-waitsecs: 3
+waitsecs: 12
 server:
   port: ":8000"
   staticdir: "public"
