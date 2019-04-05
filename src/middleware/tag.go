@@ -3,15 +3,16 @@ package middleware
 /**
  * @author Oliver Kelton, oakelton@gmail.com
  * @date Mar 21, 2019
- * Middleware to parse last element in URL into two components: a "tag" and an
- * "ext" (extension).
- * Useful for cases such as determining type of data to serve in GET requests
+ * Middleware to parse last element in URL into two components: a "tag"
+ * and an "ext" (extension).
+ * Useful for cases such as determining type of data to serve in GET
+ * requests
  * ex: /path/to/file.pdf would be parsed to {"tag": "file","ext": "pdf"}
  */
 
 import (
 	"net/http"
-	webapp "gopkg.in/ollykel/webapp.v0.1"
+	webapp "gopkg.in/ollykel/webapp.v0"
 	"log"
 )
 

@@ -9,7 +9,7 @@ package middleware
 
 import (
 	"net/http"
-	webapp "gopkg.in/ollykel/webapp.v0.1"
+	webapp "gopkg.in/ollykel/webapp.v0"
 )
 
 func fromExtension (r *http.Request, data webapp.ReqData) bool {

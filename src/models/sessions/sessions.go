@@ -13,7 +13,7 @@ import (
 	"time"
 	"crypto/rand"
 	"net/http"
-	"gopkg.in/ollykel/webapp.v0.1/model"
+	"gopkg.in/ollykel/webapp.v0/model"
 	"models/users"
 )
 

@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 	// framework dependencies
-	webapp "gopkg.in/ollykel/webapp.v0.1"
-	database "gopkg.in/ollykel/webapp.v0.1/databases/mysql"
+	webapp "gopkg.in/ollykel/webapp.v0"
+	database "gopkg.in/ollykel/webapp.v0/databases/mysql"
 	// local imports
 	"models"
 	"middleware"
