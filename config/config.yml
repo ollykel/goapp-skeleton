@@ -1,14 +1,14 @@
-Index: "public/index.html"
-StaticDir: "/public/"
-WaitSecs: 3
-Server:
-  Port: ":8000"
-  CacheTimeoutSecs: 30
-  TLSEnabled: false
-Database: 
-  Protocol: "tcp"
-  Address: "db:3306"
-  DatabaseName: "db"
-  Username: "app"
-  Password: "app_password"
+index: "public/index.html"
+staticdir: "/public/"
+waitsecs: 3
+server:
+  port: ":8000"
+  cachetimeoutsecs: 30
+  tlsenabled: false
+database: 
+  protocol: "tcp"
+  address: "db:3306"
+  databasename: "db"
+  username: "app"
+  password: "app_password"
 

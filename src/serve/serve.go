@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"os"
 	"log"
 	"net/http"
 	// framework dependencies
@@ -40,6 +42,7 @@ func Methods() map[string]*webapp.Methods {
 func main() {
 	config, err := webapp.LoadConfig(configFileName)
 	if err != nil { log.Fatal(err.Error()) }
+	fmt.Fprintf(os.Stderr, "Config: %v\n", config)
 	//-- feel free to inject different dependencies below
 	//-- check out the interfaces Server, Database, and Handler in webapp
 	app, err := webapp.Init(config, &webapp.DefaultServer{},
