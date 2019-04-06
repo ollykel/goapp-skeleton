@@ -6,7 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src="gopher.png?v=1" className="App-logo" alt="logo" />
+          <img src="gopher.png?v=2" className="App-logo" alt="logo" />
           <p>Welcome to your first Goapp!</p>
 		  <a
             className="App-link"
